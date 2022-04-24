@@ -1,6 +1,6 @@
 type user @entity(immutable: true) {
   id: Bytes!
-  token: [token!]! @derivedFrom(field: "User")
+  Token: [token!]! @derivedFrom(field: "User")
 }
 type token @entity {
   id: String!

@@ -42,13 +42,13 @@ export class user extends Entity {
     this.set("id", Value.fromBytes(value));
   }
 
-  get token(): Array<string> {
-    let value = this.get("token");
+  get Token(): Array<string> {
+    let value = this.get("Token");
     return value!.toStringArray();
   }
 
-  set token(value: Array<string>) {
-    this.set("token", Value.fromStringArray(value));
+  set Token(value: Array<string>) {
+    this.set("Token", Value.fromStringArray(value));
   }
 }
 

@@ -35,16 +35,17 @@ export function handleApprovalForAll(event: ApprovalForAll): void {}
 export function handleEvole(event: Evole): void {}
 
 export function handleMint(event: Mint): void {
-  // let entity = user.load(event.params.user)
-  // if (entity== null) {
-  //   entity = new user(event.params.user)
-  // }
+   let entity = user.load(event.params.user)
+   if (entity== null) {
+     entity = new user(event.params.user)
+   }
   let ID = new token(event.params.tokenId.toString())
   ID.evolform = new BigInt(0)
   ID.race = new BigInt(0)
   ID.amount =new BigInt(0)
   ID.User=event.params.user
   ID.save()
+  entity.save()
 }
 
 export function handleNewLockChoice(event: NewLockChoice): void {}
