@@ -16,7 +16,7 @@ import {
 import { user,token,foodlist } from "../generated/schema"
 
 export function handleFeed(event: Feed): void {
-   let food = new foodlist(event.params.unlockTime.toString())
+   let food = new foodlist(event.params.tokenId.toString())
    food.amount = event.params.amount
    food.isclaim = false
    food.Token = event.params.tokenId.toString()
