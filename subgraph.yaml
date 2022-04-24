@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,22 +8,15 @@ dataSources:
     source:
       address: "0x3DE90a8B7B79d972f672acC0493A4ed0d628eba6"
       abi: scbmumbai
+      startBlock: 26063620
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
-        - Evole
-        - Feed
-        - Mint
-        - NewLockChoice
-        - OwnershipTransferred
-        - Reclaim
-        - RewardPaid
-        - Transfer
-        - UpdateLockChoice
+        - user
+        - token
+        - food
       abis:
         - name: scbmumbai
           file: ./abis/scbmumbai.json
