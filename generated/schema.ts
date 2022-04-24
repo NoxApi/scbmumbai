@@ -123,6 +123,23 @@ export class token extends Entity {
   set User(value: Bytes) {
     this.set("User", Value.fromBytes(value));
   }
+
+  get Foodlist(): Array<string> | null {
+    let value = this.get("Foodlist");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set Foodlist(value: Array<string> | null) {
+    if (!value) {
+      this.unset("Foodlist");
+    } else {
+      this.set("Foodlist", Value.fromStringArray(<Array<string>>value));
+    }
+  }
 }
 
 export class foodlist extends Entity {
@@ -131,8 +148,8 @@ export class foodlist extends Entity {
     this.set("id", Value.fromString(id));
 
     this.set("amount", Value.fromBigInt(BigInt.zero()));
-    this.set("TokenID", Value.fromBigInt(BigInt.zero()));
     this.set("isclaim", Value.fromBoolean(false));
+    this.set("Token", Value.fromString(""));
   }
 
   save(): void {
@@ -169,15 +186,6 @@ export class foodlist extends Entity {
     this.set("amount", Value.fromBigInt(value));
   }
 
-  get TokenID(): BigInt {
-    let value = this.get("TokenID");
-    return value!.toBigInt();
-  }
-
-  set TokenID(value: BigInt) {
-    this.set("TokenID", Value.fromBigInt(value));
-  }
-
   get isclaim(): boolean {
     let value = this.get("isclaim");
     return value!.toBoolean();
@@ -185,5 +193,14 @@ export class foodlist extends Entity {
 
   set isclaim(value: boolean) {
     this.set("isclaim", Value.fromBoolean(value));
+  }
+
+  get Token(): string {
+    let value = this.get("Token");
+    return value!.toString();
+  }
+
+  set Token(value: string) {
+    this.set("Token", Value.fromString(value));
   }
 }
