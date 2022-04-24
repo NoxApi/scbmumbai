@@ -25,6 +25,7 @@ export function handleFeed(event: Feed): void {
 export function handleReclaim(event: Reclaim): void {
   let food = foodlist.load(event.params.unlockTime.toString())
   food!.isclaim! = true
+  food!.save()
 }
 
 export function handleApprovalForAll(event: ApprovalForAll): void {}
