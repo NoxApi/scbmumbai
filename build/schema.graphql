@@ -1,0 +1,21 @@
+type user @entity(immutable: true) {
+  id: Bytes!
+  token: [token!]! @derivedFrom(field: "User")
+}
+type token @entity {
+  id: String!
+  evolform: BigInt!
+  race: BigInt!
+  amount: BigInt!
+  User:user!
+  # Foodlist:[foodlist!] @derivedFrom(field: "Token")
+  
+}
+
+type foodlist @entity {
+  id: String!
+  amount: BigInt!
+  TokenID: BigInt!
+  isclaim: Boolean!
+  # Token: token!
+}

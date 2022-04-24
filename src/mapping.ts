@@ -26,28 +26,37 @@ export function handleFeed(event: Feed): void {
   // foods.isclaim = false
 }
 export function handleReclaim(event: Reclaim): void {
+  // let ID = token.load(event.params.tokenId.toString())
+  // ID?.Foodlist?.at(event.params.unlockTime.toString)
 }
 
-//export function handleApprovalForAll(event: ApprovalForAll): void {}
+export function handleApprovalForAll(event: ApprovalForAll): void {}
 
 export function handleEvole(event: Evole): void {}
 
 export function handleMint(event: Mint): void {
+  let entity = user.load(event.params.user)
+  if (entity== null) {
+    entity = new user(event.params.user)
+  }
   let ID = new token(event.params.tokenId.toString())
   ID.evolform = new BigInt(0)
   ID.race = new BigInt(0)
   ID.amount =new BigInt(0)
-  ID.User=event.params.user
+  ID.User=entity.id
+  let tokenid = entity.token
+  tokenid.push(ID.id)
+  entity.save()
   ID.save()
 }
 
-//export function handleNewLockChoice(event: NewLockChoice): void {}
+export function handleNewLockChoice(event: NewLockChoice): void {}
 
-//export function handleOwnershipTransferred(event: OwnershipTransferred): void {}
+export function handleOwnershipTransferred(event: OwnershipTransferred): void {}
 
 
-//export function handleRewardPaid(event: RewardPaid): void {}
+export function handleRewardPaid(event: RewardPaid): void {}
 
-//export function handleTransfer(event: Transfer): void {}
+export function handleTransfer(event: Transfer): void {}
 
-//export function handleUpdateLockChoice(event: UpdateLockChoice): void {}
+export function handleUpdateLockChoice(event: UpdateLockChoice): void {}
