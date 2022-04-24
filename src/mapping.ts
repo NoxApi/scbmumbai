@@ -22,7 +22,7 @@ export function handleFeed(event: Feed): void {
    }
    entity.amount = event.params.amount
    entity.isclaim = false
-   entity.TokenID = event.params.tokenId
+   entity.Token = event.params.tokenId.toString()
 }
 export function handleReclaim(event: Reclaim): void {
   // let ID = token.load(event.params.tokenId.toString())
