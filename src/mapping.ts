@@ -23,8 +23,8 @@ export function handleFeed(event: Feed): void {
    food.save()
 }
 export function handleReclaim(event: Reclaim): void {
-  // let ID = token.load(event.params.tokenId.toString())
-  // ID?.Foodlist?.at(event.params.unlockTime.toString)
+  let food = foodlist.load(event.params.unlockTime.toString())
+  food!.isclaim! = true
 }
 
 export function handleApprovalForAll(event: ApprovalForAll): void {}
