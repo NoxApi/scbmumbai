@@ -16,13 +16,10 @@ import {
 import { user,token,foodlist } from "../generated/schema"
 
 export function handleFeed(event: Feed): void {
-  let entity = foodlist.load(event.params.tokenId.toString())
-  if (entity== null) {
-     entity = new foodlist(event.params.tokenId.toString())
-   }
-   entity.amount = event.params.amount
-   entity.isclaim = false
-   entity.Token = event.params.tokenId.toString()
+   let food = new foodlist(event.params.unlockTime.toString())
+   food.amount = event.params.amount
+   food.isclaim = false
+   food.Token = event.params.tokenId.toString()
 }
 export function handleReclaim(event: Reclaim): void {
   // let ID = token.load(event.params.tokenId.toString())
