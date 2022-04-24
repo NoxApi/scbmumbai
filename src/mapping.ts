@@ -20,6 +20,7 @@ export function handleFeed(event: Feed): void {
    food.amount = event.params.amount
    food.isclaim = false
    food.Token = event.params.tokenId.toString()
+   food.save()
 }
 export function handleReclaim(event: Reclaim): void {
   // let ID = token.load(event.params.tokenId.toString())
